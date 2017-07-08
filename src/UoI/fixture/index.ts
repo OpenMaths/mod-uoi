@@ -1,4 +1,4 @@
-import * as I from '../interface'
+import * as I from '../interface/index'
 
 const getInternalRefConnection = (
   val: string = 'dae9696e-3d00-466a-9b14-b7486ddb2737',

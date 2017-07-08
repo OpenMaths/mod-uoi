@@ -1,4 +1,4 @@
-import Sample from './fake'
+import Sample from './fixture'
 import * as util from './utils'
 
 describe('UoI/utils', () => {
