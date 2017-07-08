@@ -15,17 +15,15 @@ describe('UoI/utils', () => {
     })
 
     test('correctly extracts the first Title Property wrapped in Option if multiple present', () => {
-      const FirstLabelProperty = Sample.getLabelProperty('First Property Value')
-      const SecondLabelProperty = Sample.getLabelProperty(
-        'Second Property Value',
-      )
+      const LabelProperty_1 = Sample.getLabelProperty('First Property Value')
+      const LabelProperty_2 = Sample.getLabelProperty('Second Property Value')
       let uoi = Sample.getEmptyUoI()
-      uoi.properties = [FirstLabelProperty, SecondLabelProperty]
+      uoi.properties = [LabelProperty_1, LabelProperty_2]
       const subject = util.getPropertyByType(uoi, 'Label')
       expect(subject.is_some()).toEqual(true)
       const unwrapped = subject.unwrap()
-      expect(unwrapped!.type).toEqual(FirstLabelProperty.type)
-      expect(unwrapped!.value).toEqual(FirstLabelProperty.value)
+      expect(unwrapped!.type).toEqual(LabelProperty_1.type)
+      expect(unwrapped!.value).toEqual(LabelProperty_1.value)
     })
 
     test('correctly returns None if no Title Property present', () => {
