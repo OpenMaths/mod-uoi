@@ -1,8 +1,9 @@
 {
   "name": "seed-mod",
   "version": "1.0.0",
-  "description": "NPM Module Seed",
+  "description": "The UoI Module",
   "main": "./dist/main.js",
+  "typings": "./dist/main.d.ts",
   "dependencies": {
     "tsp-monads": "^13.0.0"
   },
