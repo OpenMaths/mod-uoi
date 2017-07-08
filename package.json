@@ -1,11 +1,11 @@
 {
-  "name": "seed-mod",
+  "name": "@openmaths/mod-uoi",
   "version": "1.0.0",
   "description": "The UoI Module",
   "main": "./dist/main.js",
   "typings": "./dist/main.d.ts",
   "dependencies": {
-    "tsp-monads": "^13.0.0"
+    "tsp-monads": "^13.1.0"
   },
   "devDependencies": {
     "@types/jest": "^20.0.2",
