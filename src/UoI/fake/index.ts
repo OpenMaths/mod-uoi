@@ -46,7 +46,10 @@ const getUoIWithProperties = (): I.UoI => ({
   ],
 })
 
-const getFullUoI = (): I.UoI => ({ ...getUoIWithProperties(), ...getUoIWithConnections() })
+const getFullUoI = (): I.UoI => ({
+  ...getUoIWithProperties(),
+  ...getUoIWithConnections(),
+})
 
 export default {
   getInternalRefConnection,

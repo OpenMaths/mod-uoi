@@ -1,4 +1,5 @@
 import { Some, None, Option } from 'tsp-monads'
+
 import * as I from './interface'
 
 export type GetPropertyByType =

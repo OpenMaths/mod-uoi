@@ -1,19 +1,21 @@
 export type PropertyType = 'Title' | 'Label' | 'MarkdownContent'
 export type ConnectionType = 'InternalRef'
 
-export interface Property<T = any> {
-  type: PropertyType
+export interface Property<T = any, U = PropertyType> {
+  type: U
   value: T
 }
 
-export interface Connection<T = string> {
-  type: ConnectionType
+export type TitleProperty = Property<string, 'Title'>
+export type LabelProperty = Property<string, 'Label'>
+export type MarkdownContentProperty = Property<string, 'MarkdownContent'>
+
+export interface Connection<T = any, U = ConnectionType> {
+  type: U
   value: T
 }
 
-export type TitleProperty = Property<string>
-export type LabelProperty = Property<string>
-export type MarkdownContentProperty = Property<string>
+export type InternalRefConnection = Property<string, 'InternalRef'>
 
 export interface UoI {
   id: string
