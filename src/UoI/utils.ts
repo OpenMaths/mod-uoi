@@ -1,4 +1,4 @@
-import { Some, None, Option } from 'tsp-monads'
+import { Some, None, Option } from '@threestup/monads'
 
 import * as I from './interface'
 
