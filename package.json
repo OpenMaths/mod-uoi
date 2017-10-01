@@ -4,6 +4,13 @@
   "description": "The UoI Module",
   "main": "./dist/main.js",
   "typings": "./dist/main.d.ts",
+  "engines": {
+    "node": ">=8.5.0"
+  },
+  "scripts": {
+    "start": "make compile && node ./dist/main.js",
+    "test": "make test"
+  },
   "dependencies": {
     "@threestup/monads": "^0.1.0"
   },
@@ -15,8 +22,9 @@
     "ts-jest": "^20.0.7",
     "typescript": "^2.4.1"
   },
-  "scripts": {
-    "test": "make test"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:OpenMaths/mod-uoi.git"
   },
   "author": "Slavomir Vojacek <slavomirvojacek@gmail.com>",
   "license": "ISC"
