@@ -1,0 +1,61 @@
+enum UoIPropertyType {
+  MarkdownContent
+}
+
+enum UoIConnectionType {
+  ExternalLink
+}
+
+type UoIProperty {
+  type: UoIPropertyType!
+  content: String!
+}
+
+input UoIPropertyInput {
+  type: UoIPropertyType!
+  content: String!
+}
+
+
+type UoIConnection {
+  type: UoIConnectionType!
+  content: String!
+}
+
+input UoIConnectionInput {
+  type: UoIConnectionType!
+  content: String!
+}
+
+type UoI {
+  id: ID!
+  createdAt: String!
+  modifiedAt: String!
+  title: String!
+  author: User!
+  labels: [String!]!
+  properties: [UoIProperty!]!
+  connections: [UoIConnection!]!
+}
+
+type User {
+  id: ID!
+  fullName: String!
+  avatarUrl: String
+}
+
+input CreateUoIInput {
+  title: String!
+  labels: [String!]!
+  properties: [UoIPropertyInput!]!
+  connections: [UoIConnectionInput!]!
+}
+
+type Query {
+  uoi(id: ID!): UoI
+  user(id: ID!): User
+}
+
+type Mutation {
+  createUoI(input: CreateUoIInput!): ID!
+}

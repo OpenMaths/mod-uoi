@@ -12,6 +12,7 @@
     "test": "make test"
   },
   "dependencies": {
+    "@openmaths/utils": "^0.4.0",
     "@threestup/monads": "^0.1.0"
   },
   "devDependencies": {

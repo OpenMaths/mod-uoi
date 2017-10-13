@@ -1,60 +1,50 @@
-import * as I from '../interface'
+import { UoI, Property, Connection } from '../../types'
 
 const getInternalRefConnection = (
   val: string = 'dae9696e-3d00-466a-9b14-b7486ddb2737',
-): I.Connection => ({
+): Connection => ({
   type: 'InternalRef',
-  value: val,
-})
-
-const getTitleProperty = (val: string = 'Real-time capacity'): I.Property => ({
-  type: 'Title',
-  value: val,
+  content: val,
 })
 
 const getMarkdownContentProperty = (
   val: string = 'National process improvement',
-): I.Property => ({
+): Property => ({
   type: 'MarkdownContent',
-  value: val,
+  content: val,
 })
 
-const getLabelProperty = (
-  val: string = 'Public-key asynchronous algorithm',
-): I.Property => ({
-  type: 'Label',
-  value: val,
-})
-
-const getEmptyUoI = (): I.UoI => ({
+const getEmptyUoI = (): UoI => ({
   id: '479ec284-b38f-4c73-8848-67aab5cb9f7b',
+  createdAt: new Date().toISOString(),
+  modifiedAt: new Date().toISOString(),
+  title: 'Some Title',
+  author: {
+    id: '67aab5cb9f7b-479ec284-b38f-4c73-8848',
+    fullName: 'Some Name',
+  },
+  labels: [],
   connections: [],
   properties: [],
 })
 
-const getUoIWithConnections = (): I.UoI => ({
+const getUoIWithConnections = (): UoI => ({
   ...getEmptyUoI(),
   connections: [getInternalRefConnection()],
 })
 
-const getUoIWithProperties = (): I.UoI => ({
+const getUoIWithProperties = (): UoI => ({
   ...getEmptyUoI(),
-  properties: [
-    getTitleProperty(),
-    getLabelProperty(),
-    getMarkdownContentProperty(),
-  ],
+  properties: [getMarkdownContentProperty(), getMarkdownContentProperty()],
 })
 
-const getFullUoI = (): I.UoI => ({
+const getFullUoI = (): UoI => ({
   ...getUoIWithProperties(),
   ...getUoIWithConnections(),
 })
 
 export default {
   getInternalRefConnection,
-  getTitleProperty,
-  getLabelProperty,
   getMarkdownContentProperty,
   getEmptyUoI,
   getUoIWithConnections,

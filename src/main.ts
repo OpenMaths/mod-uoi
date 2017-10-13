@@ -1,2 +1,2 @@
-const main = () => console.log('Hello, World!')
-main()
+export * from './UoI'
+export * from './types'
