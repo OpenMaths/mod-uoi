@@ -1,2 +1,2 @@
-export * from './UoI'
-export * from './types'
+export * from "./UoI"
+export * from "./types"

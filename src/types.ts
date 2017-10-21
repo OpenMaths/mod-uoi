@@ -1,5 +1,5 @@
-export type PropertyType = 'MarkdownContent'
-export type ConnectionType = 'InternalRef'
+export type PropertyType = "MarkdownContent"
+export type ConnectionType = "InternalRef"
 
 export interface Property<T = any, U = PropertyType> {
   type: U
@@ -11,8 +11,8 @@ export interface Connection<T = any, U = ConnectionType> {
   content: T
 }
 
-export type MarkdownContentProperty = Property<string, 'MarkdownContent'>
-export type InternalRefConnection = Property<string, 'InternalRef'>
+export type MarkdownContentProperty = Property<string, "MarkdownContent">
+export type InternalRefConnection = Property<string, "InternalRef">
 
 export interface User {
   id: string
