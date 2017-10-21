@@ -6,6 +6,20 @@ enum UoIConnectionType {
   ExternalLink
 }
 
+enum VisibilityType {
+  OnlyMe, Token, Everyone
+}
+
+type Visibility {
+  type: VisibilityType!
+  token: String
+}
+
+input VisibilityInput {
+  type: VisibilityType!
+  token: String
+}
+
 type UoIProperty {
   type: UoIPropertyType!
   content: String!
@@ -31,6 +45,7 @@ type UoI {
   id: ID!
   createdAt: String!
   modifiedAt: String!
+  visibility: Visibility!
   title: String!
   author: User!
   labels: [String!]!
@@ -47,8 +62,63 @@ type User {
 input CreateUoIInput {
   title: String!
   labels: [String!]!
+  visibility: VisibilityInput!
   properties: [UoIPropertyInput!]!
   connections: [UoIConnectionInput!]!
+}
+
+type CreateUoIResult {
+  id: ID!
+}
+
+input CreateUoIPropertyInput {
+  property: UoIPropertyInput!
+}
+
+input CreateUoIConnectionInput {
+  connection: UoIConnectionInput!
+}
+
+type CreateUoIPropertyResult {
+  uoi: UoI!
+}
+
+type CreateUoIConnectionResult {
+  uoi: UoI!
+}
+
+input UpdateUoIPropertyInput {
+  id: ID!
+  property: UoIPropertyInput!
+}
+
+input UpdateUoIConnectionInput {
+  id: ID!
+  connection: UoIConnectionInput!
+}
+
+type UpdateUoIPropertyResult {
+  uoi: UoI!
+}
+
+type UpdateUoIConnectionResult {
+  uoi: UoI!
+}
+
+input RemoveUoIPropertyInput {
+  id: ID!
+}
+
+input RemoveUoIConnectionInput {
+  id: ID!
+}
+
+type RemoveUoIPropertyResult {
+  uoi: UoI!
+}
+
+type RemoveUoIConnectionResult {
+  uoi: UoI!
 }
 
 type Query {
@@ -57,5 +127,11 @@ type Query {
 }
 
 type Mutation {
-  createUoI(input: CreateUoIInput!): ID!
+  createUoI(input: CreateUoIInput!): CreateUoIResult!
+  createUoIProperty(input: CreateUoIPropertyInput!): CreateUoIPropertyResult!
+  createUoIConnection(input: CreateUoIConnectionInput!): CreateUoIConnectionResult!
+  updateUoIProperty(input: UpdateUoIPropertyInput!): UpdateUoIPropertyResult!
+  updateUoIConnection(input: UpdateUoIConnectionInput!): UpdateUoIConnectionResult!
+  removeUoIProperty(input: RemoveUoIPropertyInput!): RemoveUoIPropertyResult!
+  removeUoIConnection(id: RemoveUoIConnectionInput!): RemoveUoIConnectionResult!
 }
