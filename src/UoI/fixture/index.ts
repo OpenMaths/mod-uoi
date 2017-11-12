@@ -1,4 +1,4 @@
-import { UoI, UoIProperty, UoIConnection, Visibility } from "../../types"
+import { UoI, UoIProperty, UoIConnection, VisibilityType } from "../../types"
 
 const getInternalRefConnection = (
   val: string = "dae9696e-3d00-466a-9b14-b7486ddb2737",
@@ -18,7 +18,10 @@ const getEmptyUoI = (): UoI => ({
   id: "479ec284-b38f-4c73-8848-67aab5cb9f7b",
   createdAt: new Date().toISOString(),
   modifiedAt: new Date().toISOString(),
-  visibility: Visibility.OnlyMe,
+  visibility: {
+    type: VisibilityType.Scoped,
+    key: "a4e51b8f-2bd8-404e-9c74-50dd462ce447"
+  },
   title: "Some Title",
   author: {
     id: "67aab5cb9f7b-479ec284-b38f-4c73-8848",

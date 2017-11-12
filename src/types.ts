@@ -20,8 +20,13 @@ export interface User {
   avatarUrl?: string
 }
 
-export enum Visibility {
-  OnlyMe = "OnlyMe", Token = "Token", Public = "Public"
+export enum VisibilityType {
+  OnlyMe = "OnlyMe", Scoped = "Scoped", Public = "Public"
+}
+
+export interface Visibility {
+  type: VisibilityType
+  key: string
 }
 
 export interface UoI {

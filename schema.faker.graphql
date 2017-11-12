@@ -17,7 +17,7 @@ type Visibility {
 
 input VisibilityInput {
   type: VisibilityType!
-  token: String
+  key: String
 }
 
 type UoIProperty {
