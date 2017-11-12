@@ -1,15 +1,15 @@
-import { UoI, Property, Connection } from "../../types"
+import { UoI, UoIProperty, UoIConnection, Visibility } from "../../types"
 
 const getInternalRefConnection = (
   val: string = "dae9696e-3d00-466a-9b14-b7486ddb2737",
-): Connection => ({
+): UoIConnection => ({
   type: "InternalRef",
   content: val,
 })
 
 const getMarkdownContentProperty = (
   val: string = "National process improvement",
-): Property => ({
+): UoIProperty => ({
   type: "MarkdownContent",
   content: val,
 })
@@ -18,6 +18,7 @@ const getEmptyUoI = (): UoI => ({
   id: "479ec284-b38f-4c73-8848-67aab5cb9f7b",
   createdAt: new Date().toISOString(),
   modifiedAt: new Date().toISOString(),
+  visibility: Visibility.OnlyMe,
   title: "Some Title",
   author: {
     id: "67aab5cb9f7b-479ec284-b38f-4c73-8848",

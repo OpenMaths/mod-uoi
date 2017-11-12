@@ -1,18 +1,18 @@
 export type PropertyType = "MarkdownContent"
 export type ConnectionType = "InternalRef"
 
-export interface Property<T = any, U = PropertyType> {
+export interface UoIProperty<T = any, U = PropertyType> {
   type: U
   content: T
 }
 
-export interface Connection<T = any, U = ConnectionType> {
+export interface UoIConnection<T = any, U = ConnectionType> {
   type: U
   content: T
 }
 
-export type MarkdownContentProperty = Property<string, "MarkdownContent">
-export type InternalRefConnection = Property<string, "InternalRef">
+export type MarkdownContentProperty = UoIProperty<string, "MarkdownContent">
+export type InternalRefConnection = UoIProperty<string, "InternalRef">
 
 export interface User {
   id: string
@@ -20,13 +20,18 @@ export interface User {
   avatarUrl?: string
 }
 
+export enum Visibility {
+  OnlyMe = "OnlyMe", Token = "Token", Public = "Public"
+}
+
 export interface UoI {
   id: string
   createdAt: string
   modifiedAt: string
+  visibility: Visibility
   title: string
   author: User
   labels: string[]
-  properties: Property[]
-  connections: Connection[]
+  properties: UoIProperty[]
+  connections: UoIConnection[]
 }
