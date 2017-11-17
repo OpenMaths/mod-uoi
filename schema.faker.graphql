@@ -30,7 +30,6 @@ input UoIPropertyInput {
   content: String!
 }
 
-
 type UoIConnection {
   type: UoIConnectionType!
   content: String!
@@ -68,7 +67,7 @@ input CreateUoIInput {
 }
 
 type CreateUoIResult {
-  id: ID!
+  uoi: UoI!
 }
 
 input CreateUoIPropertyInput {

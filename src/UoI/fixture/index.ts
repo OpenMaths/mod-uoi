@@ -3,6 +3,7 @@ import { UoI, UoIProperty, UoIConnection, VisibilityType } from "../../types"
 const getInternalRefConnection = (
   val: string = "dae9696e-3d00-466a-9b14-b7486ddb2737",
 ): UoIConnection => ({
+  id: "ec9c63e6-f58d-4daa-ab2b-a7b22a8d50a4",
   type: "InternalRef",
   content: val,
 })
@@ -10,6 +11,7 @@ const getInternalRefConnection = (
 const getMarkdownContentProperty = (
   val: string = "National process improvement",
 ): UoIProperty => ({
+  id: "fd2fcbc3-7ea3-4eae-9f31-8f4f8cd463f1",
   type: "MarkdownContent",
   content: val,
 })

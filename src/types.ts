@@ -2,11 +2,13 @@ export type PropertyType = "MarkdownContent"
 export type ConnectionType = "InternalRef"
 
 export interface UoIProperty<T = any, U = PropertyType> {
+  id: string
   type: U
   content: T
 }
 
 export interface UoIConnection<T = any, U = ConnectionType> {
+  id: string
   type: U
   content: T
 }
