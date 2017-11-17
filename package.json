@@ -1,6 +1,6 @@
 {
   "name": "@openmaths/uoi",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "The UoI Module",
   "main": "./dist/main.js",
   "typings": "./dist/main.d.ts",
