@@ -22,9 +22,10 @@ const getEmptyUoI = (): UoI => ({
   modifiedAt: new Date().toISOString(),
   visibility: {
     type: VisibilityType.Scoped,
-    key: "a4e51b8f-2bd8-404e-9c74-50dd462ce447"
+    key: "a4e51b8f-2bd8-404e-9c74-50dd462ce447",
   },
   title: "Some Title",
+  type: "MarkdownContent",
   author: {
     id: "67aab5cb9f7b-479ec284-b38f-4c73-8848",
     fullName: "Some Name",

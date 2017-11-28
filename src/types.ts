@@ -1,12 +1,12 @@
-export type PropertyType = "MarkdownContent"
+export type UoIType = "MarkdownContent"
 export type ConnectionType = "InternalRef"
 
-export interface CreateUoIProperty<T = any, U = PropertyType> {
+export interface CreateUoIProperty<T = any, U = UoIType> {
   type: U
   content: T
 }
 
-export interface UoIProperty<T = any, U = PropertyType> {
+export interface UoIProperty<T = any, U = UoIType> {
   id: string
   type: U
   content: T
@@ -33,7 +33,9 @@ export interface User {
 }
 
 export enum VisibilityType {
-  OnlyMe = "OnlyMe", Scoped = "Scoped", Public = "Public"
+  OnlyMe = "OnlyMe",
+  Scoped = "Scoped",
+  Public = "Public",
 }
 
 export interface Visibility {
@@ -47,6 +49,7 @@ export interface UoI {
   modifiedAt: string
   visibility: Visibility
   title: string
+  type: UoIType
   author: User
   labels: string[]
   properties: UoIProperty[]

@@ -1,5 +1,5 @@
 enum UoIPropertyType {
-  MarkdownContent
+  MarkdownContent, HtmlContent
 }
 
 enum UoIConnectionType {
@@ -7,7 +7,7 @@ enum UoIConnectionType {
 }
 
 enum VisibilityType {
-  OnlyMe, Token, Everyone
+  OnlyMe, Scoped, Everyone
 }
 
 type Visibility {
@@ -21,21 +21,23 @@ input VisibilityInput {
 }
 
 type UoIProperty {
+  id: ID!
   type: UoIPropertyType!
   content: String!
 }
 
-input UoIPropertyInput {
+input CreateUoIPropertyInput {
   type: UoIPropertyType!
   content: String!
 }
 
 type UoIConnection {
+  id: ID!
   type: UoIConnectionType!
   content: String!
 }
 
-input UoIConnectionInput {
+input CreateUoIConnectionInput {
   type: UoIConnectionType!
   content: String!
 }
@@ -62,20 +64,12 @@ input CreateUoIInput {
   title: String!
   labels: [String!]!
   visibility: VisibilityInput!
-  properties: [UoIPropertyInput!]!
-  connections: [UoIConnectionInput!]!
+  properties: [CreateUoIPropertyInput!]!
+  connections: [CreateUoIConnectionInput!]!
 }
 
 type CreateUoIResult {
   uoi: UoI!
-}
-
-input CreateUoIPropertyInput {
-  property: UoIPropertyInput!
-}
-
-input CreateUoIConnectionInput {
-  connection: UoIConnectionInput!
 }
 
 type CreateUoIPropertyResult {
@@ -88,12 +82,14 @@ type CreateUoIConnectionResult {
 
 input UpdateUoIPropertyInput {
   id: ID!
-  property: UoIPropertyInput!
+  type: UoIPropertyType!
+  content: String!
 }
 
 input UpdateUoIConnectionInput {
   id: ID!
-  connection: UoIConnectionInput!
+  type: UoIPropertyType!
+  content: String!
 }
 
 type UpdateUoIPropertyResult {
@@ -121,6 +117,7 @@ type RemoveUoIConnectionResult {
 }
 
 type Query {
+  time: String! @fake(type: pastDate)
   uoi(id: ID!): UoI
   user(id: ID!): User
 }
