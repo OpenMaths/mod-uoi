@@ -8,9 +8,7 @@ const getInternalRefConnection = (
   content: val,
 })
 
-const getMarkdownContentProperty = (
-  val: string = "National process improvement",
-): UoIProperty => ({
+const getMarkdownContentProperty = (val: string = "National process improvement"): UoIProperty => ({
   id: "fd2fcbc3-7ea3-4eae-9f31-8f4f8cd463f1",
   type: "MarkdownContent",
   content: val,

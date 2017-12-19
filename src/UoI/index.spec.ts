@@ -12,9 +12,7 @@ describe("UoI/utils", () => {
 
   describe("getPropertyByType", () => {
     test("correctly extracts the MarkdownContent Property wrapped in Option if present", () => {
-      const MarkdownContentProperty = Sample.getMarkdownContentProperty(
-        "Some Property Value",
-      )
+      const MarkdownContentProperty = Sample.getMarkdownContentProperty("Some Property Value")
       this.uoi.properties = [MarkdownContentProperty]
       const subject = getPropertyByType(this.uoi, "MarkdownContent")
       expect(subject.is_some()).toEqual(true)
@@ -25,16 +23,9 @@ describe("UoI/utils", () => {
     })
 
     test("correctly extracts the first MarkdownContent Property wrapped in Option if multiple present", () => {
-      const MarkdownContentProperty_1 = Sample.getMarkdownContentProperty(
-        "First Property Value",
-      )
-      const MarkdownContentProperty_2 = Sample.getMarkdownContentProperty(
-        "Second Property Value",
-      )
-      this.uoi.properties = [
-        MarkdownContentProperty_1,
-        MarkdownContentProperty_2,
-      ]
+      const MarkdownContentProperty_1 = Sample.getMarkdownContentProperty("First Property Value")
+      const MarkdownContentProperty_2 = Sample.getMarkdownContentProperty("Second Property Value")
+      this.uoi.properties = [MarkdownContentProperty_1, MarkdownContentProperty_2]
       const subject = getPropertyByType(this.uoi, "MarkdownContent")
       expect(subject.is_some()).toEqual(true)
       const unwrapped = subject.unwrap()
